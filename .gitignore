@@ -1,0 +1,15 @@
+## IDE
+.idea/
+.run/
+.vscode/
+
+## Configs
+.env
+*.env
+env/
+venv/
+Makefile.config
+
+## Project Files
+*.meta.out
+**/outputs/*

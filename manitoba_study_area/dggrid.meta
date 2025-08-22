@@ -1,0 +1,55 @@
+################################################################################
+# DGGRID metafile that generates a high resolution grid using a mixed aperture
+# ISEA projection and clipped to a small area in Manitoba.
+# The output grid is in GeoJSON format.
+#
+# based on https://github.com/sahrk/DGGRID/tree/master/examples/gridgenGeoJSON
+#
+# WARNING:
+#   Cell result is ~50MB with >70K polygons.
+#   It can take a while to open in GIS software if loaded all at once.
+################################################################################
+
+# specify the operation
+dggrid_operation GENERATE_GRID
+
+# specify the DGG
+dggs_type ISEA43H
+dggs_num_aperture_4_res 6
+## average resolution
+dggs_res_spec 9
+## full resolution
+# dggs_res_spec 16
+
+# control the generation
+clip_subset_type GDAL
+clip_region_files inputs/manitoba_study_area.geojson
+geodetic_densify 0.0
+
+# specify the output
+#cell_output_type GEOJSON
+cell_output_type GDAL_COLLECTION
+cell_output_gdal_format GeoJSON
+cell_output_file_name outputs/manitoba_study_area_cell
+
+point_output_type GEOJSON
+point_output_file_name outputs/manitoba_study_area_point
+densification 3
+
+# output the other resolution cells IDs
+#   TEXT: cellID childID~1~ childID~2~ ... childID~n~
+#       same for neighbors/children
+#       in such case, the [...]_output_file_name applies, collection_output_file_name ignored
+#   GDAL_COLLECTION: outputs everything under a single collection
+#       in such case, the collection_output_file_name applies, other ignored
+
+neighbor_output_type GDAL_COLLECTION
+# neighbor_output_type TEXT
+neighbor_output_file_name outputs/manitoba_study_area_neighbors.txt
+
+children_output_type GDAL_COLLECTION
+# children_output_type TEXT
+children_output_file_name outputs/manitoba_study_area_children.txt
+
+collection_output_gdal_format GeoJSON
+collection_output_file_name outputs/manitoba_study_area_collection.geojson
