@@ -4,11 +4,6 @@
 # The output grid is in GeoJSON format.
 #
 # based on https://github.com/sahrk/DGGRID/tree/master/examples/gridgenGeoJSON
-#
-# WARNING:
-#   Cell result is ~50MB with >70K polygons when using L16 resolution.
-#   With collection output, including children/neighbors, the file is ~85MB.
-#   It can take a while to open in GIS software if loaded all at once.
 ################################################################################
 
 # specify the operation
@@ -17,10 +12,8 @@ dggrid_operation GENERATE_GRID
 # specify the DGG
 dggs_type ISEA43H
 dggs_num_aperture_4_res 6
-## average resolution
-dggs_res_spec 9
-## full resolution
-# dggs_res_spec 16
+## resolution
+dggs_res_spec 10
 
 # control the generation
 clip_subset_type GDAL
@@ -31,11 +24,20 @@ geodetic_densify 0.0
 #cell_output_type GEOJSON
 cell_output_type GDAL_COLLECTION
 cell_output_gdal_format GeoJSON
-cell_output_file_name outputs/manitoba_study_area_L9_cell
+cell_output_file_name outputs/manitoba_study_area_ISEA43H_L10_cell
 
 point_output_type GEOJSON
-point_output_file_name outputs/manitoba_study_area_L9_point
+point_output_file_name outputs/manitoba_study_area_ISEA43H_L10_point
+# number of points per cell edge
+#   ensures that rounded polygon edges are well represented,
+#   or in the right orientation for antimeridian crossing
 densification 3
+
+# https://dggrid.readthedocs.io/latest/dggrid_man_V841.html#appendix-c-dgg-address-forms
+output_cell_label_type OUTPUT_ADDRESS_TYPE
+output_address_type HIERNDX
+output_hier_ndx_system ZORDER
+output_hier_ndx_form DIGIT_STRING
 
 # output the other resolution cells IDs
 #   TEXT: cellID childID~1~ childID~2~ ... childID~n~
@@ -47,11 +49,11 @@ densification 3
 
 neighbor_output_type GDAL_COLLECTION
 # neighbor_output_type TEXT
-neighbor_output_file_name outputs/manitoba_study_area_L9_neighbors
+neighbor_output_file_name outputs/manitoba_study_area_ISEA43H_L10_neighbors
 
 children_output_type GDAL_COLLECTION
 # children_output_type TEXT
-children_output_file_name outputs/manitoba_study_area_L9_children
+children_output_file_name outputs/manitoba_study_area_ISEA43H_L10_children
 
 collection_output_gdal_format GeoJSON
-collection_output_file_name outputs/manitoba_study_area_L9_collection.geojson
+collection_output_file_name outputs/manitoba_study_area_ISEA43H_L10_collection.geojson
