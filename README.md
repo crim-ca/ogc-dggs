@@ -4,8 +4,29 @@ General scripts and documentation of data preparation for DGGS representation.
 
 ## References
 
-- https://github.com/sahrk/DGGRID
-- https://dggrid.readthedocs.io/latest/index.html
+**Summary of most relevant resources/libraries**: https://github.com/opengeoshub/vgrid#references
+
+---
+
+**Extra References**
+
+- `dggrid` - Core library to many other DGGS handlers/manipulators
+  - https://github.com/sahrk/DGGRID
+  - https://dggrid.readthedocs.io/latest/index.html
+- `dggrid4py` - Python wrapper of `dggrid` with high-level functions used by `pydggsapi` and data manipulation tools
+  - https://github.com/allixender/dggrid4py
+- `xdggs-dggrid4py`, `rhealpixdggs-py`, `xdggs` - Wrapper/Plugins for Python `xarray` and `dask`
+  - https://github.com/LandscapeGeoinformatics/xdggs-dggrid4py
+  - https://github.com/manaakiwhenua/rhealpixdggs-py
+  - https://github.com/xarray-contrib/xdggs
+  - https://xdggs.readthedocs.io/
+- `vgrid` - Main generator/converter of most DGGRS types and CLI tools for raster/vector data to DGGS slicing
+  - https://github.com/opengeoshub/vgrid
+  - https://vgrid.gishub.vn/
+- `vgridpandas` - GeoPandas integration including `s2pandas`, `h3pandas`, etc. for filtering DGGS data
+  - https://vgridpandas.gishub.vn/ 
+- `raster2dggs` - Partial alternative to `vgrid` but limited to raster and only DGGRS: H3, rHEALPix, S2
+  - https://github.com/manaakiwhenua/raster2dggs
 
 ## Installation
 
@@ -17,10 +38,11 @@ This ensures that binaries and libraries are correctly linked and aligned with t
 However, you can also invoke the gcc/g++ compilers directly if you prefer with the relevant dependencies installed.
 
 ```shell
-mamba create -n dggs -y python=3.12
-mamba activate dggs
-mamba install conda-forge::gcc conda-forge::gxx conda-forge::libgdal conda-forge::gdal cmake
+mamba env create --file environment.yml
+mamba activate ogc-dggs
+```
 
+```shell
 git clone https://github.com/sahrk/DGGRID
 mkdir -p DGGRID/build && cd DGGRID/build
 cmake -DCMAKE_BUILD_TYPE=Release -DWITH_GDAL=ON ..

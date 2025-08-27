@@ -1,0 +1,15 @@
+name: ogc-dggs
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.12
+  - conda-forge::gcc
+  - conda-forge::gxx
+  - conda-forge::libgdal
+  - conda-forge::gdal
+  - cmake
+  - pip
+  - pip:
+      - pystac-client
+      - vgrid

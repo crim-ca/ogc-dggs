@@ -7,6 +7,8 @@ override MAKE_DIR := $(shell dirname $(MAKE_CUR))
 # Include custom config if it is available to apply any overrides
 -include Makefile.config
 
+## --- DGGRID Examples ---
+
 # default location if https://github.com/sahrk/DGGRID
 # is cloned and built at the same leval as this repository
 # otherwise, adjust accordingly with env variable
@@ -44,3 +46,15 @@ dggrid-run-force:
 dggrid-clean:
 	@rm -f $(DGGRID_META_OUTS)
 	@rm -fr $(foreach f,$(DGGRID_META_FILES),$(shell find -path "$$(dirname $(f))/outputs/*" ! -name .gitkeep))
+
+### --- Conda Management ---
+
+CONDA_TOOL ?= mamba
+
+.PHONY: conda-create
+conda-create:
+	$(CONDA_TOOL) env create -f "$(MAKE_DIR)/environment.yml"
+
+.PHONY: conda-update
+conda-update:
+	$(CONDA_TOOL) env update -f "$(MAKE_DIR)/environment.yml"

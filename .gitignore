@@ -12,4 +12,5 @@ Makefile.config
 
 ## Project Files
 *.meta.out
+!*.meta.*.env
 **/outputs/*
