@@ -28,6 +28,15 @@ General scripts and documentation of data preparation for DGGS representation.
 - `raster2dggs` - Partial alternative to `vgrid` but limited to raster and only DGGRS: H3, rHEALPix, S2
   - https://github.com/manaakiwhenua/raster2dggs
 
+## Important Notes
+
+- `ISEA`: Icosahedral Snyder Equal Area
+- `IGEO7`: this DGGRS is sometimes mentioned in libraries, but not mentioned across all implementations explicitly.
+  However, `IGEO7` is simply an alias to `ISEA7H + 7Z`, ie: Hexagonal equal-area ISEA orientation with aperture 7
+  specifically using the Z7 indexing system (hierarchical integer indexes using an  aperture 7
+  Central Place Indexing Sahr) [https://agile-giss.copernicus.org/articles/6/32/2025/agile-giss-6-32-2025.pdf].
+  Each hexagon "zoom-level" consists of 7 sub-hexagons of equal area.
+
 ## Installation
 
 The [DGGRID](https://github.com/sahrk/DGGRID) software must be compiled to run the examples.

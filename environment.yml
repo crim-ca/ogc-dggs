@@ -11,5 +11,6 @@ dependencies:
   - cmake
   - pip
   - pip:
+      - folium
       - pystac-client
       - vgrid

@@ -3,6 +3,9 @@
 .run/
 .vscode/
 
+## Notebooks
+**/.ipynb_checkpoints/
+
 ## Configs
 .env
 *.env
