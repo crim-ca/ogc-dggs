@@ -84,7 +84,7 @@ make dggrid-run-force
 
 ## Examples
 
-### Manitoba Study Area
+### Manitoba-Winnipeg Study Area
 
 ISEA43H DGGS at levels 9 and 16 overlapping the input polygon as sample area of interest.
 

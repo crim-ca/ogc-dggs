@@ -1,6 +1,6 @@
 ################################################################################
 # DGGRID metafile that generates a high resolution grid using a mixed aperture
-# ISEA projection and clipped to a small area in Manitoba.
+# ISEA projection and clipped to a small area in Manitoba-Winnipeg.
 # The output grid is in GeoJSON format.
 #
 # based on https://github.com/sahrk/DGGRID/tree/master/examples/gridgenGeoJSON
@@ -13,21 +13,23 @@ dggrid_operation GENERATE_GRID
 dggs_type ISEA43H
 dggs_num_aperture_4_res 6
 ## resolution
-dggs_res_spec 10
+dggs_res_spec 9
 
 # control the generation
 clip_subset_type GDAL
-clip_region_files inputs/manitoba_study_area.geojson
+clip_region_files inputs/manitoba-winnipeg_study_area.geojson
 geodetic_densify 0.0
 
 # specify the output
 #cell_output_type GEOJSON
 cell_output_type GDAL_COLLECTION
 cell_output_gdal_format GeoJSON
-cell_output_file_name outputs/manitoba_study_area_ISEA43H_L10_cell
+cell_output_file_name outputs/manitoba-winnipeg_study_area_ISEA43H_ZORDER_L9_cell
 
-point_output_type GEOJSON
-point_output_file_name outputs/manitoba_study_area_ISEA43H_L10_point
+#point_output_type GEOJSON
+point_output_type GDAL_COLLECTION
+point_output_gdal_format GeoJSON
+point_output_file_name outputs/manitoba-winnipeg_study_area_ISEA43H_ZORDER_L9_point
 # number of points per cell edge
 #   ensures that rounded polygon edges are well represented,
 #   or in the right orientation for antimeridian crossing
@@ -49,11 +51,11 @@ output_hier_ndx_form DIGIT_STRING
 
 neighbor_output_type GDAL_COLLECTION
 # neighbor_output_type TEXT
-neighbor_output_file_name outputs/manitoba_study_area_ISEA43H_L10_neighbors
+neighbor_output_file_name outputs/manitoba-winnipeg_study_area_ISEA43H_ZORDER_L9_neighbors
 
 children_output_type GDAL_COLLECTION
 # children_output_type TEXT
-children_output_file_name outputs/manitoba_study_area_ISEA43H_L10_children
+children_output_file_name outputs/manitoba-winnipeg_study_area_ISEA43H_ZORDER_L9_children
 
 collection_output_gdal_format GeoJSON
-collection_output_file_name outputs/manitoba_study_area_ISEA43H_L10_collection.geojson
+collection_output_file_name outputs/manitoba-winnipeg_study_area_ISEA43H_ZORDER_L9_collection.geojson

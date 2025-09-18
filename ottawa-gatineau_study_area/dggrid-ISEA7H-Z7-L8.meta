@@ -1,0 +1,60 @@
+################################################################################
+# DGGRID metafile that generates a high resolution grid using a mixed aperture
+# ISEA projection and clipped to a small area in Ottawa-Gatineau.
+# The output grid is in GeoJSON format.
+#
+# based on https://github.com/sahrk/DGGRID/tree/master/examples/gridgenGeoJSON
+################################################################################
+
+# specify the operation
+dggrid_operation GENERATE_GRID
+
+# specify the DGG
+dggs_type ISEA7H
+## resolution
+dggs_res_spec 8
+
+# control the generation
+clip_subset_type GDAL
+clip_region_files inputs/ottawa-gatineau_study_area.geojson
+geodetic_densify 0.0
+
+# specify the output
+#cell_output_type GEOJSON
+cell_output_type GDAL_COLLECTION
+cell_output_gdal_format GeoJSON
+cell_output_file_name outputs/ottawa-gatineau_study_area_ISEA7H_Z7_L8_cell
+
+#point_output_type GEOJSON
+point_output_type GDAL_COLLECTION
+point_output_gdal_format GeoJSON
+point_output_file_name outputs/ottawa-gatineau_study_area_ISEA7H_Z7_L8_point
+# number of points per cell edge
+#   ensures that rounded polygon edges are well represented,
+#   or in the right orientation for antimeridian crossing
+densification 3
+
+# https://dggrid.readthedocs.io/latest/dggrid_man_V841.html#appendix-c-dgg-address-forms
+output_cell_label_type OUTPUT_ADDRESS_TYPE
+output_address_type HIERNDX
+output_hier_ndx_system Z7
+output_hier_ndx_form DIGIT_STRING
+
+# output the other resolution cells IDs
+#   TEXT: cellID childID~1~ childID~2~ ... childID~n~
+#       same for neighbors/children
+#       in such case, the [...]_output_file_name applies, collection_output_file_name ignored
+#   GDAL_COLLECTION: outputs everything under a single collection
+#       in such case, the collection_output_file_name applies, other ignored
+#       the contents are combined with 'cell_output_type' to have all cells with their neighbors/children
+
+neighbor_output_type GDAL_COLLECTION
+# neighbor_output_type TEXT
+neighbor_output_file_name outputs/ottawa-gatineau_study_area_ISEA7H_Z7_L8_neighbors
+
+children_output_type GDAL_COLLECTION
+# children_output_type TEXT
+children_output_file_name outputs/ottawa-gatineau_study_area_ISEA7H_Z7_L8_children
+
+collection_output_gdal_format GeoJSON
+collection_output_file_name outputs/ottawa-gatineau_study_area_ISEA7H_Z7_L8_collection.geojson
