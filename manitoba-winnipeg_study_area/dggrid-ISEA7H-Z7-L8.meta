@@ -19,20 +19,26 @@ clip_subset_type GDAL
 clip_region_files inputs/manitoba-winnipeg_study_area.geojson
 geodetic_densify 0.0
 
+#dggs_orient_specify_type SPECIFIED
+#dggs_vert0_lon 11.20
+#dggs_vert0_lat 58.282525588538994675786
+#dggs_vert0_azimuth 0.0
+# number of points per cell edge
+#   ensures that rounded polygon edges are well represented,
+#   or in the right orientation for antimeridian crossing
+densification 5
+precision 12
+
 # specify the output
 #cell_output_type GEOJSON
 cell_output_type GDAL_COLLECTION
 cell_output_gdal_format GeoJSON
 cell_output_file_name outputs/manitoba-winnipeg_study_area_ISEA7H_Z7_L8_cell
 
-#point_output_type GEOJSON
-point_output_type GDAL_COLLECTION
+point_output_type GEOJSON
+#point_output_type GDAL_COLLECTION
 point_output_gdal_format GeoJSON
 point_output_file_name outputs/manitoba-winnipeg_study_area_ISEA7H_Z7_L8_point
-# number of points per cell edge
-#   ensures that rounded polygon edges are well represented,
-#   or in the right orientation for antimeridian crossing
-densification 3
 
 # https://dggrid.readthedocs.io/latest/dggrid_man_V841.html#appendix-c-dgg-address-forms
 output_cell_label_type OUTPUT_ADDRESS_TYPE

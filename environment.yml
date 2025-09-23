@@ -13,4 +13,5 @@ dependencies:
   - pip:
       - folium
       - pystac-client
+      - dggrid4py
       - vgrid
