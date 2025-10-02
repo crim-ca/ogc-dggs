@@ -19,10 +19,10 @@ clip_subset_type GDAL
 clip_region_files inputs/manitoba-winnipeg_study_area.geojson
 geodetic_densify 0.0
 
-#dggs_orient_specify_type SPECIFIED
-#dggs_vert0_lon 11.20
-#dggs_vert0_lat 58.282525588538994675786
-#dggs_vert0_azimuth 0.0
+dggs_orient_specify_type SPECIFIED
+dggs_vert0_lon 11.20
+dggs_vert0_lat 58.282525588538994675786
+dggs_vert0_azimuth 0.0
 # number of points per cell edge
 #   ensures that rounded polygon edges are well represented,
 #   or in the right orientation for antimeridian crossing
