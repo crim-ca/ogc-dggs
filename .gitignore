@@ -3,6 +3,9 @@
 .run/
 .vscode/
 
+## Notebooks
+**/.ipynb_checkpoints/
+
 ## Configs
 .env
 *.env
@@ -14,3 +17,5 @@ Makefile.config
 *.meta.out
 !*.meta.*.env
 **/outputs/*
+**/metafile_*
+**/temp_*

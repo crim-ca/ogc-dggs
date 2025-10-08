@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "description": "The RCM-ARD data was activated last spring (2025), i.e., turned \"ON\" at that time. So there should be some floods observable in the Ottawa-Gatineau area from the last spring but they would be limited in extent."
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -76,
+              45.6
+            ],
+            [
+              -76,
+              45.3
+            ],
+            [
+              -75.5,
+              45.3
+            ],
+            [
+              -75.5,
+              45.6
+            ],
+            [
+              -76,
+              45.6
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    }
+  ]
+}

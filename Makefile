@@ -42,8 +42,13 @@ dggrid-run: $(DGGRID_META_OUTS)
 dggrid-run-force:
 	$(MAKE) --always-make dggrid-run
 
+.PHONY: dggrid-clean-temp
+dggrid-clean-temp:
+	@rm -fr $(shell find -path "**/metafile_*" )
+	@rm -fr $(shell find -path "**/temp_*" )
+
 .PHONY: dggrid-clean
-dggrid-clean:
+dggrid-clean: dggrid-clean-temp
 	@rm -f $(DGGRID_META_OUTS)
 	@rm -fr $(foreach f,$(DGGRID_META_FILES),$(shell find -path "$$(dirname $(f))/outputs/*" ! -name .gitkeep))
 

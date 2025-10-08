@@ -1,6 +1,6 @@
 ################################################################################
 # DGGRID metafile that generates a high resolution grid using a mixed aperture
-# ISEA projection and clipped to a small area in Manitoba.
+# ISEA projection and clipped to a small area in Manitoba-Winnipeg.
 # The output grid is in GeoJSON format.
 #
 # based on https://github.com/sahrk/DGGRID/tree/master/examples/gridgenGeoJSON
@@ -10,24 +10,30 @@
 dggrid_operation GENERATE_GRID
 
 # specify the DGG
-dggs_type ISEA43H
-dggs_num_aperture_4_res 6
+dggs_type ISEA3H
 ## resolution
-dggs_res_spec 9
+dggs_res_spec 8
 
 # control the generation
 clip_subset_type GDAL
-clip_region_files inputs/manitoba_study_area.geojson
+clip_region_files inputs/manitoba-winnipeg_study_area.geojson
 geodetic_densify 0.0
+
+dggs_orient_specify_type SPECIFIED
+dggs_vert0_lon 11.20
+dggs_vert0_lat 58.282525588538994675786
+dggs_vert0_azimuth 0.0
 
 # specify the output
 #cell_output_type GEOJSON
 cell_output_type GDAL_COLLECTION
 cell_output_gdal_format GeoJSON
-cell_output_file_name outputs/manitoba_study_area_ISEA43H_L9_cell
+cell_output_file_name outputs/manitoba-winnipeg_study_area_ISEA3H_Z3_L8_cell
 
-point_output_type GEOJSON
-point_output_file_name outputs/manitoba_study_area_ISEA43H_L9_point
+#point_output_type GEOJSON
+point_output_type GDAL_COLLECTION
+point_output_gdal_format GeoJSON
+point_output_file_name outputs/manitoba-winnipeg_study_area_ISEA3H_Z3_L8_point
 # number of points per cell edge
 #   ensures that rounded polygon edges are well represented,
 #   or in the right orientation for antimeridian crossing
@@ -36,7 +42,7 @@ densification 3
 # https://dggrid.readthedocs.io/latest/dggrid_man_V841.html#appendix-c-dgg-address-forms
 output_cell_label_type OUTPUT_ADDRESS_TYPE
 output_address_type HIERNDX
-output_hier_ndx_system ZORDER
+output_hier_ndx_system Z3
 output_hier_ndx_form DIGIT_STRING
 
 # output the other resolution cells IDs
@@ -49,11 +55,11 @@ output_hier_ndx_form DIGIT_STRING
 
 neighbor_output_type GDAL_COLLECTION
 # neighbor_output_type TEXT
-neighbor_output_file_name outputs/manitoba_study_area_ISEA43H_L9_neighbors
+neighbor_output_file_name outputs/manitoba-winnipeg_study_area_ISEA3H_Z3_L8_neighbors
 
 children_output_type GDAL_COLLECTION
 # children_output_type TEXT
-children_output_file_name outputs/manitoba_study_area_ISEA43H_L9_children
+children_output_file_name outputs/manitoba-winnipeg_study_area_ISEA3H_Z3_L8_children
 
 collection_output_gdal_format GeoJSON
-collection_output_file_name outputs/manitoba_study_area_ISEA43H_L9_collection.geojson
+collection_output_file_name outputs/manitoba-winnipeg_study_area_ISEA3H_Z3_L8_collection.geojson
