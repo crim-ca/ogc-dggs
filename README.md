@@ -88,4 +88,15 @@ make dggrid-run-force
 
 ISEA43H DGGS at levels 9 and 16 overlapping the input polygon as sample area of interest.
 
-![Manitoba Study Area](./manitoba_study_area/images/result_dggs.png)
+![Manitoba Study Area](./manitoba-winnipeg_study_area/images/result_dggs.png)
+
+### Manitoba-Winnipeg DGGS Data Preparation from STAC RCM-ARD
+
+Prepares IGEO7 / ISEA7H + 7Z (and optionally other DGGRS) from a STAC catalogue providing satellite imagery from
+RCM-ARD (RADARSAT Constellation Mission Analysis-Ready Data).
+
+See the Jupyter Notebooks under [manitoba-rcm-ard](manitoba-rcm-ard).
+
+![Manitoba RCM-ARD](./manitoba-rcm-ard/images/manitoba-rcm-ard-isea7h-zones.png)
+
+
