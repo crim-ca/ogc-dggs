@@ -9,6 +9,8 @@ dependencies:
   - conda-forge::libgdal
   - conda-forge::gdal
   - cmake
+  - jupyter
+  - notebook
   - pip
   - pip:
       - -r requirements.txt
