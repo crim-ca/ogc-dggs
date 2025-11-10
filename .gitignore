@@ -17,5 +17,6 @@ Makefile.config
 *.meta.out
 !*.meta.*.env
 **/outputs/*
+!**/outputs/.gitkeep
 **/metafile_*
 **/temp_*
