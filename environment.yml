@@ -11,8 +11,4 @@ dependencies:
   - cmake
   - pip
   - pip:
-      - folium
-      - pystac-client
-      - dggrid4py
-      - vgrid
-      - mock
+      - -r requirements.txt
