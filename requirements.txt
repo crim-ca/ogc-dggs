@@ -1,0 +1,10 @@
+# see also environment.yml for additional dependencies
+folium
+pystac-client
+dggrid4py>=0.5.2
+geopandas
+rasterio
+shapely
+vgrid
+mock
+tqdm

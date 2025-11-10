@@ -9,10 +9,8 @@ dependencies:
   - conda-forge::libgdal
   - conda-forge::gdal
   - cmake
+  - jupyter
+  - notebook
   - pip
   - pip:
-      - folium
-      - pystac-client
-      - dggrid4py
-      - vgrid
-      - mock
+      - -r requirements.txt
