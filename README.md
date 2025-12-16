@@ -99,4 +99,11 @@ See the Jupyter Notebooks under [manitoba-rcm-ard](manitoba-rcm-ard).
 
 ![Manitoba RCM-ARD](./manitoba-rcm-ard/images/manitoba-rcm-ard-isea7h-zones.png)
 
+### Canada Population H3 Data Preparation and Storage Analysis
 
+Using the Kontur Population Dataset, prepares the H3 L0 to L8 zones filtered for Canada.
+
+Additional analysis using GeoParquet format for efficient storage is evaluated for its compression
+capacity using various representations of the columnar data and observing its impact on storage size.
+
+![Canada Population H3](./canada-population/images/canada-population-h3.png)
