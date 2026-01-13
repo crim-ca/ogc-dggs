@@ -2,6 +2,48 @@
 
 General scripts and documentation of data preparation for DGGS representation.
 
+- [Analysis Examples](#analysis-examples)
+- [References](#references)
+- [Important Notes](#important-notes)
+- [Installation](#installation)
+- [Execution](#execution)
+
+## Analysis Examples
+
+### Manitoba-Winnipeg Study Area
+
+ISEA43H DGGS at levels 9 and 16 overlapping the input polygon as sample area of interest.
+
+![Manitoba Study Area](./manitoba-winnipeg_study_area/images/result_dggs.png)
+
+### Manitoba-Winnipeg DGGS Data Preparation from STAC RCM-ARD
+
+Prepares IGEO7 / ISEA7H + 7Z (and optionally other DGGRS) from a STAC catalogue providing satellite imagery from
+RCM-ARD (RADARSAT Constellation Mission Analysis-Ready Data).
+
+See the Jupyter Notebooks under [manitoba-rcm-ard](manitoba-rcm-ard).
+
+![Manitoba RCM-ARD](./manitoba-rcm-ard/images/manitoba-rcm-ard-isea7h-zones.png)
+
+### Canada Population H3 Data Preparation and Storage Analysis
+
+Using the [Kontur Population Dataset][kontur-population-dataset], prepares the H3 L0 to L8 zones filtered for Canada.
+
+Additional analysis using GeoParquet format for efficient storage is evaluated for its compression
+capacity using various representations of the columnar data and observing its impact on storage size.
+
+![Canada Population H3](./canada-population/images/canada-population-h3.png)
+
+### Parquet / DGGS-(UB)JSON Data Storage Analysis
+
+The [parquet-dggs-ubjson-storage](./parquet-dggs-ubjson-storage/h3_parquet_dggs_json.ipynb) Notebook
+provides an analysis of various storage formats for DGGS data, specifically comparing
+Parquet and DGGS-(UB)JSON compressed formats for a relatively large dataset
+(~33 million H3 L8 zones of the [Kontur Population Dataset][kontur-population-dataset]).
+
+
+[kontur-population-dataset]: https://data.humdata.org/dataset/kontur-population-dataset
+
 ## References
 
 **Summary of most relevant resources/libraries**: https://github.com/opengeoshub/vgrid#references
@@ -81,29 +123,3 @@ To force execution, use:
 ```shell
 make dggrid-run-force
 ```
-
-## Examples
-
-### Manitoba-Winnipeg Study Area
-
-ISEA43H DGGS at levels 9 and 16 overlapping the input polygon as sample area of interest.
-
-![Manitoba Study Area](./manitoba-winnipeg_study_area/images/result_dggs.png)
-
-### Manitoba-Winnipeg DGGS Data Preparation from STAC RCM-ARD
-
-Prepares IGEO7 / ISEA7H + 7Z (and optionally other DGGRS) from a STAC catalogue providing satellite imagery from
-RCM-ARD (RADARSAT Constellation Mission Analysis-Ready Data).
-
-See the Jupyter Notebooks under [manitoba-rcm-ard](manitoba-rcm-ard).
-
-![Manitoba RCM-ARD](./manitoba-rcm-ard/images/manitoba-rcm-ard-isea7h-zones.png)
-
-### Canada Population H3 Data Preparation and Storage Analysis
-
-Using the Kontur Population Dataset, prepares the H3 L0 to L8 zones filtered for Canada.
-
-Additional analysis using GeoParquet format for efficient storage is evaluated for its compression
-capacity using various representations of the columnar data and observing its impact on storage size.
-
-![Canada Population H3](./canada-population/images/canada-population-h3.png)
