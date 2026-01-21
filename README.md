@@ -3,6 +3,10 @@
 General scripts and documentation of data preparation for DGGS representation.
 
 - [Analysis Examples](#analysis-examples)
+  - [Manitoba-Winnipeg Study Area](#Manitoba-Winnipeg-Study-Area)
+  - [Manitoba-Winnipeg DGGS Data Preparation from STAC RCM-ARD](#Manitoba-Winnipeg-DGGS-Data-Preparation-from-STAC-RCM-ARD)
+  - [Canada Population H3 Data Preparation and Storage Analysis](#Canada-Population-H3-Data-Preparation-and-Storage-Analysis)
+  - [Parquet / DGGS-(UB)JSON Data Storage Analysis](Parquet--DGGS-UBJSON-Data-Storage-Analysis)
 - [References](#references)
 - [Important Notes](#important-notes)
 - [Installation](#installation)
