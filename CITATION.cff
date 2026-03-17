@@ -1,0 +1,71 @@
+cff-version: 1.2.0
+title: "crim-ca/ogc-dggs"
+message: |
+  OGC-DGGS: A collection of scripts, documentation, data preparation and visualization pipelines for DGGS representation.
+
+  This repository demonstrates multiple applications of DGGS data preparation pipelines using various data sources,
+  data domains, formats and encodings, DGGS types and libraires.
+
+authors:
+  - name: &crim Computer Research Institute of Montréal
+    city: "Montréal"
+    region: "Québec"
+    alias: CRIM
+    website: "https://www.crim.ca/"
+    email: "info@crim.ca"
+    tel: "1 (514) 840-1234"
+    country: CA
+    post-code: "H3N 1M3"
+    address: "101 – 405, avenue Ogilvy"
+  - &fmigneault
+    given-names: "Francis"
+    family-names: "Charette-Migneault"
+    alias: fmigneault
+    email: "francis.charette-migneault@crim.ca"
+    orcid: "https://orcid.org/0000-0003-4862-3349"
+    affiliation: *crim
+
+contact:
+  - *fmigneault
+
+doi: "10.5281/zenodo.19060259"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19060259"
+    description: "Zenodo DOI"
+  - type: url
+    value: "https://github.com/crim-ca/ogc-dggs"
+    description: "Source code repository."
+
+type: "software"
+url: "https://github.com/crim-ca/ogc-dggs"
+repository-code: "https://github.com/crim-ca/ogc-dggs"
+
+keywords:
+  - "OGC"
+  - "DGGS"
+  - "Discrete Global Grid System"
+  - "Data Preparation"
+  - "Data Visualization"
+  - "Spatio-temporal Data"
+  - "Geospatial Data"
+  - "Climate Data"
+
+license: "CC-BY-NC-SA-4.0"
+license-url: "https://creativecommons.org/licenses/by-nc-sa/4.0"
+
+references:
+  - title: "pydggsapi: An OGC API DGGS implementation based on Python FastAPI"
+    authors:
+      - family-names: "Chan"
+        given-names: "Wai Tik"
+        orcid: "https://orcid.org/0009-0005-3779-139X"
+      - *fmigneault
+      - family-names: "Kmoch"
+        given-names: "Alexander"
+        orcid: "https://orcid.org/0000-0003-4386-4450"
+    url: "https://github.com/LandscapeGeoinformatics/pydggsapi"
+    doi: "10.5281/zenodo.18981764"
+    type: software-code
+    version: "0.2.1"
+    date-released: "2026-03-12"

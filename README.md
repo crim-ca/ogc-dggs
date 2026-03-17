@@ -1,6 +1,23 @@
-# OGC11 DGGS - Discrete Global Grid System
+# OGC DGGS - Discrete Global Grid System
 
-General scripts and documentation of data preparation for DGGS representation.
+A collection of scripts, documentation, data preparation and visualization pipelines for DGGS representation.
+
+This repository demonstrates multiple applications of DGGS data preparation pipelines using various data sources,
+data domains, formats and encodings, DGGS types and libraires.
+
+## Table of Contents
+
+- [References](#references)
+- [Important Notes](#important-notes)
+- [Installation](#installation)
+- [Execution](#execution)
+- [Examples](#examples)
+  - [Manitoba-Winnipeg Study Area](#manitoba-winnipeg-study-area)
+  - [Manitoba-Winnipeg DGGS Data Preparation from STAC RCM-ARD](#manitoba-winnipeg-dggs-data-preparation-from-stac-rcm-ard)
+  - [Canada Population H3 Data Preparation and Storage Analysis](#canada-population-h3-data-preparation-and-storage-analysis)
+  - [Canada Climate Variables as DGGS H3  Zarr from NetCDF Lat/Lon/Time](#canada-climate-variables-as-dggs-h3--zarr-from-netcdf-latlontime)
+- [Citation](#citation)
+- [Acknowledgements](#acknowledgements)
 
 ## References
 
@@ -24,7 +41,7 @@ General scripts and documentation of data preparation for DGGS representation.
   - https://github.com/opengeoshub/vgrid
   - https://vgrid.gishub.vn/
 - `vgridpandas` - GeoPandas integration including `s2pandas`, `h3pandas`, etc. for filtering DGGS data
-  - https://vgridpandas.gishub.vn/ 
+  - https://vgridpandas.gishub.vn/
 - `raster2dggs` - Partial alternative to `vgrid` but limited to raster and only DGGRS: H3, rHEALPix, S2
   - https://github.com/manaakiwhenua/raster2dggs
 
@@ -107,3 +124,59 @@ Additional analysis using GeoParquet format for efficient storage is evaluated f
 capacity using various representations of the columnar data and observing its impact on storage size.
 
 ![Canada Population H3](./canada-population/images/canada-population-h3.png)
+
+### Canada Climate Variables as DGGS H3  Zarr from NetCDF Lat/Lon/Time
+
+Collection of Jupyter notebooks that demonstrate loading, subsetting, visualizing,
+and exploring climate datasets stored in Zarr format and projected into DGGS H3 representations.
+
+The climate dataset is sourced from [ClimateData.ca](https://climatedata.ca/) and includes variables
+such as temperature, precipitation, and other climate variables across Canada, for monthly time steps (years 1950-2100)
+of historical and forecast, with multiple
+[Social Economic Pathways](https://climatedata.ca/resource/understanding-shared-socio-economic-pathways-ssps/) (SSPs)
+climate models and percentiles.
+
+Spatial resolution of roughly 1/12° (lat/lon) and temporal resolution of 1 month are used as input from NetCDF files.
+They are quantized into DGGS H3 representations at various resolutions (L0 to L6) for spatial analysis.
+These DGGS encodings are converted to Zarr format with per-level groups and temporal chunks for efficient storage and access.
+
+The notebooks show how to: prepare data, quantize into DGGS zones, visualize results on interactive maps.
+Some libraries such as `xarray` and `xdggs` are employed optimize DGGS back-and-forth operations with Lat/Lon coordinates.
+
+- `canada-climate/data_preparation.ipynb` —
+  Data preparation pipeline: ingesting raw climate data, generating metadata scrapped from the source files
+  and from [ClimateData.ca Variables](https://climatedata.ca/variables/), prepare DGGS Zarr results with chunking optimization,
+  and output `pydggsapi` configurations for them.
+- `canada-climate/dggs_visualize_zarr_data.ipynb` —
+  Visualize DGGS climate variables from Zarr stores.
+  Includes examples of generating 2D maps, a 3D globe rendering, and turning data into DGGS layers for interactive inspection.
+- `canada-climate/dggs_subset_zarr_data.ipynb` —
+  Tools and recipes to subset Zarr climate stores timeseries or variable subsets for DGGS zones across levels.
+  Employed to publish a sample subset of the data as a public Zarr store.
+
+Following are some sample visualization outputs produced with the notebooks.
+
+![Canada Climate - SSP2-4.5 p10% Precipitation DGGS H3 res=2](./canada-climate/images/dggs-climate-data-sample_ssp245-prcptot-p10-res2.png)
+
+![Canada Climate - SSP2-4.5 p10% Precipitation DGGS H3 res=4](./canada-climate/images/dggs-climate-data-sample_ssp245-prcptot-p10-res4.png)
+
+![Canada Climate - SSP3-7.0 p50% Temperature Max DGGS H3 res=4](./canada-climate/images/dggs-climate-data-sample_ssp370-txmax-p50-res4.png)
+
+![Canada Climate - 3D Globe - Same Temperature Max as 2D projection](./canada-climate/images/dggs-climate-data-sample_ssp370-txmax-p50-res4_3dglobe.png)
+
+## Citation
+
+![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19060259-blue.svg)
+
+If this work is used in your research, please consider citing it according to the [CITATION.cff](CITATION.cff) file.
+
+## Acknowledgements
+
+This work has been financed by
+the [OGC AI-DGGS for Disaster Management Pilot](https://www.ogc.org/initiatives/ai-dggs-pilot/)
+driven by the [Open Geospatial Consortium](https://www.ogc.org/)
+and sponsors composed of the [Centre national d’études spatiales](https://cnes.fr/) (CNES),
+the [European Space Agency](https://www.esa.int/) (ESA),
+[Natural Resources Canada](https://natural-resources.canada.ca/) (NRCan),
+the [United States Geological Survey](https://www.usgs.gov/) (USGS),
+and in-kind contributions from the [Computer Research Institue of Montréal](https://crim.ca/) (CRIM).
