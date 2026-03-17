@@ -1,6 +1,9 @@
-# OGC11 DGGS - Discrete Global Grid System
+# OGC DGGS - Discrete Global Grid System
 
-General scripts and documentation of data preparation for DGGS representation.
+A collection of scripts, documentation, data preparation and visualization pipelines for DGGS representation.
+
+This repository demonstrates multiple applications of DGGS data preparation pipelines using various data sources,
+data domains, formats and encodings, DGGS types and libraires.
 
 ## Table of Contents
 
@@ -13,7 +16,8 @@ General scripts and documentation of data preparation for DGGS representation.
   - [Manitoba-Winnipeg DGGS Data Preparation from STAC RCM-ARD](#manitoba-winnipeg-dggs-data-preparation-from-stac-rcm-ard)
   - [Canada Population H3 Data Preparation and Storage Analysis](#canada-population-h3-data-preparation-and-storage-analysis)
   - [Canada Climate Variables as DGGS H3  Zarr from NetCDF Lat/Lon/Time](#canada-climate-variables-as-dggs-h3--zarr-from-netcdf-latlontime)
-
+- [Citation](#citation)
+- [Acknowledgements](#acknowledgements)
 
 ## References
 
@@ -160,3 +164,19 @@ Following are some sample visualization outputs produced with the notebooks.
 
 ![Canada Climate - 3D Globe - Same Temperature Max as 2D projection](./canada-climate/images/dggs-climate-data-sample_ssp370-txmax-p50-res4_3dglobe.png)
 
+## Citation
+
+![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19060259-blue.svg)
+
+If this work is used in your research, please consider citing it according to the [CITATION.cff](CITATION.cff) file.
+
+## Acknowledgements
+
+This work has been financed by
+the [OGC AI-DGGS for Disaster Management Pilot](https://www.ogc.org/initiatives/ai-dggs-pilot/)
+driven by the [Open Geospatial Consortium](https://www.ogc.org/)
+and sponsors composed of the [Centre national d’études spatiales](https://cnes.fr/) (CNES),
+the [European Space Agency](https://www.esa.int/) (ESA),
+[Natural Resources Canada](https://natural-resources.canada.ca/) (NRCan),
+the [United States Geological Survey](https://www.usgs.gov/) (USGS),
+and in-kind contributions from the [Computer Research Institue of Montréal](https://crim.ca/) (CRIM).
