@@ -24,6 +24,10 @@ data domains, formats and encodings, DGGS types and libraries.
 
 ### Manitoba-Winnipeg Study Area
 
+> [!NOTE]
+> This section uses [`DGGRID`](https://github.com/sahrk/DGGRID) metafiles under
+> the [`manitoba-winnipeg_study_area`](./manitoba-winnipeg_study_area/) directory.
+
 ISEA43H DGGS at levels 9 and 16 overlapping the input polygon as sample area of interest.
 
 ![Manitoba Study Area](./manitoba-winnipeg_study_area/images/result_dggs.png)
@@ -31,10 +35,11 @@ ISEA43H DGGS at levels 9 and 16 overlapping the input polygon as sample area of 
 
 ### Manitoba-Winnipeg DGGS Data Preparation from STAC RCM-ARD
 
+> [!NOTE]
+> This section uses Jupyter Notebooks under the [`manitoba-rcm-ard`](./manitoba-rcm-ard/) directory.
+
 Prepares IGEO7 / ISEA7H + 7Z (and optionally other DGGRS) from a STAC catalogue providing satellite imagery from
 RCM-ARD (RADARSAT Constellation Mission Analysis-Ready Data).
-
-See the Jupyter Notebooks under [manitoba-rcm-ard](manitoba-rcm-ard).
 
 ![Manitoba RCM-ARD](./manitoba-rcm-ard/images/manitoba-rcm-ard-isea7h-zones.png)
 
@@ -51,6 +56,9 @@ capacity using various representations of the columnar data and observing its im
 
 ### Canada Climate Variables as DGGS H3  Zarr from NetCDF Lat/Lon/Time
 
+> [!NOTE]
+> This section uses notebooks under the [`canada-climate`](./canada-climate/) directory.
+
 Collection of Jupyter notebooks that demonstrate loading, subsetting, visualizing,
 and exploring climate datasets stored in Zarr format and projected into DGGS H3 representations.
 
@@ -64,17 +72,17 @@ Spatial resolution of roughly 1/12° (lat/lon) and temporal resolution of 1 mont
 They are quantized into DGGS H3 representations at various resolutions (L0 to L6) for spatial analysis.
 These DGGS encodings are converted to Zarr format with per-level groups and temporal chunks for efficient storage and access.
 
-The notebooks show how to: prepare data, quantize into DGGS zones, visualize results on interactive maps.
+The notebooks show how to prepare data, quantize into DGGS zones, visualize results on interactive maps.
 Some libraries such as `xarray` and `xdggs` are employed optimize DGGS back-and-forth operations with Lat/Lon coordinates.
 
-- `canada-climate/data_preparation.ipynb` —
+- [`canada-climate/data_preparation.ipynb`](./canada-climate/data_preparation.ipynb) <br>
   Data preparation pipeline: ingesting raw climate data, generating metadata scrapped from the source files
   and from [ClimateData.ca Variables](https://climatedata.ca/variables/), prepare DGGS Zarr results with chunking optimization,
   and output `pydggsapi` configurations for them.
-- `canada-climate/dggs_visualize_zarr_data.ipynb` —
+- [`canada-climate/dggs_visualize_zarr_data.ipynb`](./canada-climate/dggs_visualize_zarr_data.ipynb) <br>
   Visualize DGGS climate variables from Zarr stores.
   Includes examples of generating 2D maps, a 3D globe rendering, and turning data into DGGS layers for interactive inspection.
-- `canada-climate/dggs_subset_zarr_data.ipynb` —
+- [`canada-climate/dggs_subset_zarr_data.ipynb`](./canada-climate/dggs_subset_zarr_data.ipynb) <br>
   Tools and recipes to subset Zarr climate stores timeseries or variable subsets for DGGS zones across levels.
   Employed to publish a sample subset of the data as a public Zarr store.
 
@@ -91,13 +99,16 @@ Following are some sample visualization outputs produced with the notebooks.
 
 ### Parquet / DGGS-(UB)JSON Data Storage Analysis
 
+> [!NOTE]
+> This section uses notebooks under the [`parquet-dggs-ubjson-storage`](./parquet-dggs-ubjson-storage/) directory.
+
 The [parquet-dggs-ubjson-storage](./parquet-dggs-ubjson-storage/h3_parquet_dggs_json.ipynb) Notebook
 provides an analysis of various storage formats for DGGS data, specifically comparing
 Parquet and DGGS-(UB)JSON compressed formats for a relatively large dataset
 (~33 million H3 L8 zones of the [Kontur Population Dataset][kontur-population-dataset]).
 
-
 [kontur-population-dataset]: https://data.humdata.org/dataset/kontur-population-dataset
+
 
 ## References
 
@@ -107,16 +118,20 @@ Parquet and DGGS-(UB)JSON compressed formats for a relatively large dataset
 
 **Extra References**
 
+- `dggal` - Core Discrete Global Grid Abstraction Library with various DGGRS implementations and tooling
+  - https://github.com/ecere/dggal
+  - https://dggal.org/
 - `dggrid` - Core library to many other DGGS handlers/manipulators
   - https://github.com/sahrk/DGGRID
   - https://dggrid.readthedocs.io/latest/index.html
 - `dggrid4py` - Python wrapper of `dggrid` with high-level functions used by `pydggsapi` and data manipulation tools
   - https://github.com/allixender/dggrid4py
-- `xdggs-dggrid4py`, `rhealpixdggs-py`, `xdggs` - Wrapper/Plugins for Python `xarray` and `dask`
+- `xdggs-dggrid4py`, `xdggs-dggal`, `xdggs`, `rhealpixdggs-py` - Wrapper/Plugins for Python `xarray` and `dask`
   - https://github.com/LandscapeGeoinformatics/xdggs-dggrid4py
-  - https://github.com/manaakiwhenua/rhealpixdggs-py
+  - https://github.com/LandscapeGeoinformatics/xdggs-dggal
   - https://github.com/xarray-contrib/xdggs
   - https://xdggs.readthedocs.io/
+  - https://github.com/manaakiwhenua/rhealpixdggs-py
 - `vgrid` - Main generator/converter of most DGGRS types and CLI tools for raster/vector data to DGGS slicing
   - https://github.com/opengeoshub/vgrid
   - https://vgrid.gishub.vn/
@@ -136,7 +151,7 @@ Parquet and DGGS-(UB)JSON compressed formats for a relatively large dataset
 
 ## Installation
 
-The [DGGRID](https://github.com/sahrk/DGGRID) software must be compiled to run the examples.
+The [`DGGRID`](https://github.com/sahrk/DGGRID) software must be compiled to run the examples.
 When compiling it, it must be configured with GDAL support.
 
 To make this process simple, it can be performed using `conda` or `mamba`, as shown below.
