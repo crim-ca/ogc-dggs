@@ -3,7 +3,7 @@
 A collection of scripts, documentation, data preparation and visualization pipelines for DGGS representation.
 
 This repository demonstrates multiple applications of DGGS data preparation pipelines using various data sources,
-data domains, formats and encodings, DGGS types and librairies.
+data domains, formats and encodings, DGGS types and libraries.
 
 ## Table of Contents
 
