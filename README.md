@@ -32,6 +32,7 @@ ISEA43H DGGS at levels 9 and 16 overlapping the input polygon as sample area of 
 
 ![Manitoba Study Area](./manitoba-winnipeg_study_area/images/result_dggs.png)
 
+---
 
 ### Manitoba-Winnipeg DGGS Data Preparation from STAC RCM-ARD
 
@@ -43,6 +44,7 @@ RCM-ARD (RADARSAT Constellation Mission Analysis-Ready Data).
 
 ![Manitoba RCM-ARD](./manitoba-rcm-ard/images/manitoba-rcm-ard-isea7h-zones.png)
 
+---
 
 ### Canada Population H3 Data Preparation and Storage Analysis
 
@@ -53,11 +55,16 @@ capacity using various representations of the columnar data and observing its im
 
 ![Canada Population H3](./canada-population/images/canada-population-h3.png)
 
+---
 
 ### Canada Climate Variables as DGGS H3  Zarr from NetCDF Lat/Lon/Time
 
 > [!NOTE]
 > This section uses notebooks under the [`canada-climate`](./canada-climate/) directory.
+
+> [!TIP]
+> A sample subset of the DGGS H3 Climate Data as Zarr+ZIP is available at: <br>
+> [![DOI-sample-climate-zarr](https://img.shields.io/badge/10.5281%2Fzenodo.19060623-blue?label=DOI)](https://doi.org/10.5281/zenodo.19060623)
 
 Collection of Jupyter notebooks that demonstrate loading, subsetting, visualizing,
 and exploring climate datasets stored in Zarr format and projected into DGGS H3 representations.
@@ -96,6 +103,7 @@ Following are some sample visualization outputs produced with the notebooks.
 
 ![Canada Climate - 3D Globe - Same Temperature Max as 2D projection](./canada-climate/images/dggs-climate-data-sample_ssp370-txmax-p50-res4_3dglobe.png)
 
+---
 
 ### Parquet / DGGS-(UB)JSON Data Storage Analysis
 
@@ -109,12 +117,11 @@ Parquet and DGGS-(UB)JSON compressed formats for a relatively large dataset
 
 [kontur-population-dataset]: https://data.humdata.org/dataset/kontur-population-dataset
 
+---
 
 ## References
 
 **Summary of most relevant resources/libraries**: https://github.com/opengeoshub/vgrid#references
-
----
 
 **Extra References**
 
